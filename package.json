@@ -1,0 +1,93 @@
+{
+  "name": "code-cmd-repeat",
+  "displayName": "Repeat terminal commands",
+  "description": "Repeat terminal commands with easy shortcuts from the focused text editor.",
+  "version": "0.1.0",
+  "publisher": "scheiblingco",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scheiblingco/code-cmd-repeat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/scheiblingco/code-cmd-repeat/issues"
+  },
+  "engines": {
+    "vscode": "^1.29.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extenison.saveAndRepeatLastCommand",
+    "onCommand:extension.repeatLastCommand",
+    "onCommand:extension.sudoRepeatLastCommand",
+    "onCommand:extension.clearAndRepeatLastCommand",
+    "onCommand:extension.clearAndSudoRepeatLastCommand"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.saveAndRepeatLastCommand",
+        "title": "Save the active file and repeat the last run command in the terminal"
+      },
+      {
+        "command": "extension.repeatLastCommand",
+        "title": "Repeat the last run command in the terminal"
+      },
+      {
+        "command": "extension.sudoRepeatLastCommand",
+        "title": "Repeat the last run command in the terminal with sudo"
+      },
+      {
+        "command": "extension.clearAndRepeatLastCommand",
+        "title": "Clear the terminal and repeat the last command"
+      },
+      {
+        "command": "extension.clearAndSudoRepeatLastCommand",
+        "title": "Clear the terminal and repeat the last command with sudo"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.saveAndRepeatLastCommand",
+        "key": "ctrl+r ctrl+r",
+        "mac": "cmd+r cmd+r"
+      },
+      {
+        "command": "extension.repeatLastCommand",
+        "key": "ctrl+r ctrl+e",
+        "mac": "cmd+r cmd+e"
+      },
+      {
+        "command": "extension.sudoRepeatLastCommand",
+        "key": "ctrl+r ctrl+s",
+        "mac": "cmd+r cmd+s"
+      },
+      {
+        "command": "extension.clearAndRepeatLastCommand",
+        "key": "ctrl+r ctrl+c",
+        "mac": "cmd+r cmd+c"
+      },
+      {
+        "command": "extension.clearAndSudoRepeatLastCommand",
+        "key": "ctrl+r ctrl+x",
+        "mac": "cmd+r cmd+x"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^8.10.25",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.37"
+  }
+}
