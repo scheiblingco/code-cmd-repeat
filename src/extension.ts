@@ -1,5 +1,5 @@
-"use strict";
-import * as vscode from "vscode";
+import * as vscode from 'vscode';
+
 
 export function saveAndRepeatLastCommand() {
     vscode.commands.executeCommand("workbench.action.files.save");
