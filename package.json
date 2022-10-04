@@ -89,5 +89,8 @@
     "tslint": "^5.8.0",
     "typescript": "^2.6.1",
     "vscode": "^1.1.37"
+  },
+  "dependencies": {
+    "vsce": "^2.11.0"
   }
 }
