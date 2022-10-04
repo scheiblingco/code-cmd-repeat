@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 16
       - name: "Install Dependencies"
-        run: npm install -g vsce
+        run: npm install -g vsce vscode
       - name: Publish to Marketplace
         run: vsce publish -p $VSCE_TOKEN
     env:
