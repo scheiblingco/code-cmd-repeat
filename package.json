@@ -2,10 +2,11 @@
   "name": "code-cmd-repeat",
   "displayName": "Repeat terminal commands",
   "description": "Repeat terminal commands with easy shortcuts from the focused text editor.",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "publisher": "scheiblingco",
+  "icon": "images/icon128.png",
   "engines": {
-    "vscode": "^1.71.0"
+    "vscode": "^1.70.0"
   },
   "repository": {
     "type": "git",
@@ -18,59 +19,59 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extenison.saveAndRepeatLastCommand",
-    "onCommand:extension.repeatLastCommand",
-    "onCommand:extension.sudoRepeatLastCommand",
-    "onCommand:extension.clearAndRepeatLastCommand",
-    "onCommand:extension.clearAndSudoRepeatLastCommand"
+    "onCommand:code-cmd-repeat.saveAndRepeatLastCommand",
+    "onCommand:code-cmd-repeat.repeatLastCommand",
+    "onCommand:code-cmd-repeat.sudoRepeatLastCommand",
+    "onCommand:code-cmd-repeat.clearAndRepeatLastCommand",
+    "onCommand:code-cmd-repeat.clearAndSudoRepeatLastCommand"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "extension.saveAndRepeatLastCommand",
+        "command": "code-cmd-repeat.saveAndRepeatLastCommand",
         "title": "Save the active file and repeat the last run command in the terminal"
       },
       {
-        "command": "extension.repeatLastCommand",
+        "command": "code-cmd-repeat.repeatLastCommand",
         "title": "Repeat the last run command in the terminal"
       },
       {
-        "command": "extension.sudoRepeatLastCommand",
+        "command": "code-cmd-repeat.sudoRepeatLastCommand",
         "title": "Repeat the last run command in the terminal with sudo"
       },
       {
-        "command": "extension.clearAndRepeatLastCommand",
+        "command": "code-cmd-repeat.clearAndRepeatLastCommand",
         "title": "Clear the terminal and repeat the last command"
       },
       {
-        "command": "extension.clearAndSudoRepeatLastCommand",
+        "command": "code-cmd-repeat.clearAndSudoRepeatLastCommand",
         "title": "Clear the terminal and repeat the last command with sudo"
       }
     ],
     "keybindings": [
       {
-        "command": "extension.saveAndRepeatLastCommand",
+        "command": "code-cmd-repeat.saveAndRepeatLastCommand",
         "key": "ctrl+r ctrl+r",
         "mac": "cmd+r cmd+r"
       },
       {
-        "command": "extension.repeatLastCommand",
+        "command": "code-cmd-repeat.repeatLastCommand",
         "key": "ctrl+r ctrl+e",
         "mac": "cmd+r cmd+e"
       },
       {
-        "command": "extension.sudoRepeatLastCommand",
+        "command": "code-cmd-repeat.sudoRepeatLastCommand",
         "key": "ctrl+r ctrl+s",
         "mac": "cmd+r cmd+s"
       },
       {
-        "command": "extension.clearAndRepeatLastCommand",
+        "command": "code-cmd-repeat.clearAndRepeatLastCommand",
         "key": "ctrl+r ctrl+c",
         "mac": "cmd+r cmd+c"
       },
       {
-        "command": "extension.clearAndSudoRepeatLastCommand",
+        "command": "code-cmd-repeat.clearAndSudoRepeatLastCommand",
         "key": "ctrl+r ctrl+x",
         "mac": "cmd+r cmd+x"
       }
@@ -85,16 +86,17 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.71.0",
     "@types/glob": "^8.0.0",
     "@types/mocha": "^10.0.0",
     "@types/node": "16.x",
+    "@types/vscode": "^1.70.0",
     "@typescript-eslint/eslint-plugin": "^5.38.1",
     "@typescript-eslint/parser": "^5.38.1",
+    "@vscode/test-electron": "^2.1.5",
     "eslint": "^8.24.0",
     "glob": "^8.0.3",
     "mocha": "^10.0.0",
     "typescript": "^4.8.4",
-    "@vscode/test-electron": "^2.1.5"
+    "vsce": "^2.11.0"
   }
 }

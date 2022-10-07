@@ -1,6 +1,4 @@
 name: Publish Extension
-
-# events but only for the main branch
 on:
   push:
     branches: [ main ]
@@ -16,7 +14,7 @@ jobs:
         with:
           node-version: 18.10.0
       - name: "Install Dependencies"
-        run: npm install -g vsce vscode
+        run: npm install -g
       - name: Publish to Marketplace
         run: vsce publish -p $VSCE_TOKEN
     env:
