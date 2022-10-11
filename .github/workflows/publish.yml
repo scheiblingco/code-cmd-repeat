@@ -20,6 +20,8 @@ jobs:
         with: 
           pat: ${{ secrets.VSM_PAT }}
           registryUrl: https://marketplace.visualstudio.com
+        # Continue to publish to OVSX even if MS Publishing fails
+        continue-on-error: True
       - name: "Publish to OpenVSX"
         uses: HaaLeo/publish-vscode-extension@v1
         with: 
