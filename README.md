@@ -7,7 +7,8 @@ Default shortcuts are:
 - Ctrl + R, Ctrl + S: Sudo Repeat last command in terminal (sudo !!)
 - Ctrl + R, Ctrl + C: Clear terminal and repeat last command in terminal (clear -x && !-2)
 - Ctrl + R, Ctrl + X: Clear terminal and sudo repeat last command in terminal (clear -x && sudo !-2)
-
+- Ctrl + R, Ctrl + A: Abort/cancel current command (Ctrl+C)
+- Ctrl + R, Ctrl + Q: Abort and restart current command (Ctrl + C && !!)
 
 You can change the shortcuts in the settings under the following commands:
 - extension.saveAndRepeatLastCommand
@@ -15,6 +16,8 @@ You can change the shortcuts in the settings under the following commands:
 - extension.sudoRepeatLastCommand
 - extension.clearRepeatLastCommand
 - extension.clearSudoRepeatLastCommand
+- extension.stopCurrentCommand
+- extension.restartCurrentCommand
 
 ## Thanks
 Thanks to the original author of the plugin [cameronmaske](https://github.com/cameronmaske/rerun-last-command-vscode)

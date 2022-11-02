@@ -1,8 +1,7 @@
 import * as vscode from 'vscode';
 const PREFIX = 'code-cmd-repeat.';
 
-export function saveAndRepeatLastCommand() {
-    vscode.commands.executeCommand("workbench.action.files.save");
+export function repeatLastCommand() {
     if (vscode.window.activeTerminal) {
         return vscode.window.activeTerminal.sendText('!!');
     }
@@ -10,9 +9,11 @@ export function saveAndRepeatLastCommand() {
       console.log("No active terminal found")
     }
 }
-export function repeatLastCommand() {
+
+export function saveAndRepeatLastCommand() {
+    vscode.commands.executeCommand("workbench.action.files.save");
     if (vscode.window.activeTerminal) {
-        return vscode.window.activeTerminal.sendText('!!');
+        return repeatLastCommand();
     }
     else {
       console.log("No active terminal found")
@@ -39,12 +40,26 @@ export function clearAndRepeatLastCommand() {
 }
 
 export function clearAndSudoRepeatLastCommand() {
-    
     if (vscode.window.activeTerminal) {
         return vscode.window.activeTerminal.sendText('clear -x && sudo !-2');
     }
     else {
         console.log("No active terminal found")
+    }
+}
+
+export function stopCurrentCommand() {
+    if (vscode.window.activeTerminal) {
+        return vscode.commands.executeCommand('workbench.action.terminal.sendSequence', {"text": "\u0003"});
+    }
+    else {
+        console.log("No active terminal found")
+    }
+}
+
+export function restartCurrentCommand() {
+    if (stopCurrentCommand()) {
+        repeatLastCommand();
     }
 }
 
@@ -70,6 +85,14 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand(PREFIX+'clearAndSudoRepeatLastCommand', clearAndSudoRepeatLastCommand)
     );
     console.log("Registered clearAndSudoRepeatLastCommand")
+    context.subscriptions.push(
+        vscode.commands.registerCommand(PREFIX+'stopCurrentCommand', stopCurrentCommand)
+    )
+    console.log("Registered stopCurrentCommand")
+    context.subscriptions.push(
+        vscode.commands.registerCommand(PREFIX+'restartCurrentCommand', restartCurrentCommand)
+    )
+    console.log("Registered restartCurrentCommand")
     console.log("Finished registering and pushing commands")
 }
 

@@ -2,7 +2,7 @@
   "name": "code-cmd-repeat",
   "displayName": "Repeat terminal commands",
   "description": "Repeat terminal commands with easy shortcuts from the focused text editor.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "scheiblingco",
   "icon": "images/icon128.png",
   "engines": {
@@ -19,11 +19,14 @@
     "Other"
   ],
   "activationEvents": [
+    "onStartupFinished",
     "onCommand:code-cmd-repeat.saveAndRepeatLastCommand",
     "onCommand:code-cmd-repeat.repeatLastCommand",
     "onCommand:code-cmd-repeat.sudoRepeatLastCommand",
     "onCommand:code-cmd-repeat.clearAndRepeatLastCommand",
-    "onCommand:code-cmd-repeat.clearAndSudoRepeatLastCommand"
+    "onCommand:code-cmd-repeat.clearAndSudoRepeatLastCommand",
+    "onCommand:code-cmd-repeat.stopCurrentCommand",
+    "onCommand:code-cmd-repeat.restartCurrentCommand"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -47,6 +50,14 @@
       {
         "command": "code-cmd-repeat.clearAndSudoRepeatLastCommand",
         "title": "Clear the terminal and repeat the last command with sudo"
+      },
+      {
+        "command": "code-cmd-repeat.stopCurrentCommand",
+        "title": "Stop the current running command"
+      },
+      {
+        "command": "code-cmd-repeat.restartCurrentCommand",
+        "title": "Restart the current running command"
       }
     ],
     "keybindings": [
@@ -74,6 +85,16 @@
         "command": "code-cmd-repeat.clearAndSudoRepeatLastCommand",
         "key": "ctrl+r ctrl+x",
         "mac": "cmd+r cmd+x"
+      },
+      {
+        "command": "code-cmd-repeat.stopCurrentCommand",
+        "key": "ctrl+r ctrl+a",
+        "mac": "cmd+r cmd+a"
+      },
+      {
+        "command": "code-cmd-repeat.restartCurrentCommand",
+        "key": "ctrl+r ctrl+q",
+        "mac": "cmd+r cmd+q"
       }
     ]
   },
