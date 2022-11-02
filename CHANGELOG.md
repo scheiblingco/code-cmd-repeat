@@ -1,9 +1,8 @@
 # Change Log
 
-All notable changes to the "code-cmd-repeat" extension will be documented in this file.
+## 0.1.3
+- Added saveAndRepeatLastCommand
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+## 0.1.4
+- Added stopCurrentCommand
+- Added restartCurrentCommand
