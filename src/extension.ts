@@ -60,7 +60,9 @@ export function stopCurrentCommand() {
 
 export function restartCurrentCommand() {
     if (stopCurrentCommand()) {
-        setTimeout(repeatLastCommand(), 3000);
+        setTimeout(() => {
+            repeatLastCommand()
+        }, 3000);
     }
 }
 
