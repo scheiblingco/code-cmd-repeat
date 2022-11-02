@@ -23,7 +23,8 @@
     "onCommand:code-cmd-repeat.repeatLastCommand",
     "onCommand:code-cmd-repeat.sudoRepeatLastCommand",
     "onCommand:code-cmd-repeat.clearAndRepeatLastCommand",
-    "onCommand:code-cmd-repeat.clearAndSudoRepeatLastCommand"
+    "onCommand:code-cmd-repeat.clearAndSudoRepeatLastCommand",
+    "onCommand:code-cmd-repeat.stopCurrentCommand"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -47,6 +48,10 @@
       {
         "command": "code-cmd-repeat.clearAndSudoRepeatLastCommand",
         "title": "Clear the terminal and repeat the last command with sudo"
+      },
+      {
+        "command": "code-cmd-repeat.stopCurrentcommand",
+        "title": "Stop the current running command"
       }
     ],
     "keybindings": [
@@ -74,6 +79,11 @@
         "command": "code-cmd-repeat.clearAndSudoRepeatLastCommand",
         "key": "ctrl+r ctrl+x",
         "mac": "cmd+r cmd+x"
+      },
+      {
+        "command": "code-cmd-repeat.stopCurrentCommand",
+        "key": "ctrl+r ctrl+a",
+        "mac": "cmd+r cmd+a"
       }
     ]
   },

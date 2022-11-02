@@ -48,6 +48,18 @@ export function clearAndSudoRepeatLastCommand() {
     }
 }
 
+export function stopCurrentCommand() {
+    if (vscode.window.activeTerminal) {
+        vscode.window.activeTerminal.show(false)
+        vscode.commands.executeCommand('workbench.action.terminal.sendSequence', 'Ctrl+C')
+        return vscode.window.activeTextEditor.show()
+
+    }
+    else {
+        console.log("No active terminal found")
+    }
+}
+
 export function activate(context: vscode.ExtensionContext) {
     console.log("Installing code-cmd-repeat extensins")
     context.subscriptions.push(
@@ -70,6 +82,9 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand(PREFIX+'clearAndSudoRepeatLastCommand', clearAndSudoRepeatLastCommand)
     );
     console.log("Registered clearAndSudoRepeatLastCommand")
+    context.subscriptions.push(
+        vscode.commands.registerCommand(PREFIX+'stopCurrentCommand', stopCurrentCommand)
+    )
     console.log("Finished registering and pushing commands")
 }
 
