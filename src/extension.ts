@@ -50,10 +50,7 @@ export function clearAndSudoRepeatLastCommand() {
 
 export function stopCurrentCommand() {
     if (vscode.window.activeTerminal) {
-        vscode.window.activeTerminal.show(false)
-        vscode.commands.executeCommand('workbench.action.terminal.sendSequence', 'Ctrl+C')
-        return vscode.window.activeTextEditor.show()
-
+        return vscode.commands.executeCommand('workbench.action.terminal.sendSequence', {"text": "\u0003"});
     }
     else {
         console.log("No active terminal found")

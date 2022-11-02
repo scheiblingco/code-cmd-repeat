@@ -2,7 +2,7 @@
   "name": "code-cmd-repeat",
   "displayName": "Repeat terminal commands",
   "description": "Repeat terminal commands with easy shortcuts from the focused text editor.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "scheiblingco",
   "icon": "images/icon128.png",
   "engines": {
@@ -19,6 +19,7 @@
     "Other"
   ],
   "activationEvents": [
+    "onStartupFinished",
     "onCommand:code-cmd-repeat.saveAndRepeatLastCommand",
     "onCommand:code-cmd-repeat.repeatLastCommand",
     "onCommand:code-cmd-repeat.sudoRepeatLastCommand",
@@ -50,7 +51,7 @@
         "title": "Clear the terminal and repeat the last command with sudo"
       },
       {
-        "command": "code-cmd-repeat.stopCurrentcommand",
+        "command": "code-cmd-repeat.stopCurrentCommand",
         "title": "Stop the current running command"
       }
     ],
