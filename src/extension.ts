@@ -54,12 +54,13 @@ export function stopCurrentCommand() {
     }
     else {
         console.log("No active terminal found")
+        return false;
     }
 }
 
 export function restartCurrentCommand() {
     if (stopCurrentCommand()) {
-        repeatLastCommand();
+        setTimeout(repeatLastCommand(), 3000);
     }
 }
 
