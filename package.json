@@ -2,7 +2,7 @@
   "name": "code-cmd-repeat",
   "displayName": "Repeat terminal commands",
   "description": "Repeat terminal commands with easy shortcuts from the focused text editor.",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "publisher": "scheiblingco",
   "icon": "images/icon128.png",
   "engines": {
