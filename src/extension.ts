@@ -11,8 +11,24 @@ function getRepeatCommand(nth: number = 0) {
     return repeatCmd.split('[enter]');
 }
 
+export function stopCurrentCommand() {
+    if (vscode.window.activeTerminal) {
+        return vscode.commands.executeCommand('workbench.action.terminal.sendSequence', {"text": "\u0003"});
+    }
+    else {
+        console.log("No active terminal found");
+        return false;
+    }
+}
+
+
 export function repeatLastCommand(num: number = 0) {
     if (vscode.window.activeTerminal) {
+        if (vscode.workspace.getConfiguration('code-cmd-repeat').get('alwaysClearBeforeRun', false))
+        {
+            stopCurrentCommand();
+        }
+
         getRepeatCommand(num).forEach(cmd => {
             vscode.window.activeTerminal?.sendText(cmd);
         });
@@ -34,6 +50,11 @@ export function saveAndRepeatLastCommand() {
 
 export function sudoRepeatLastCommand(num: number = 0) {
     if (vscode.window.activeTerminal) {
+        if (vscode.workspace.getConfiguration('code-cmd-repeat').get('alwaysClearBeforeRun', false))
+        {
+            stopCurrentCommand();
+        }
+
         getRepeatCommand(num).forEach(cmd => {
             vscode.window.activeTerminal?.sendText([
                 vscode.workspace.getConfiguration('code-cmd-repeat').get('sudoCommand', 'sudo'),
@@ -64,16 +85,6 @@ export function clearAndSudoRepeatLastCommand() {
     }
     else {
         console.log("No active terminal found");
-    }
-}
-
-export function stopCurrentCommand() {
-    if (vscode.window.activeTerminal) {
-        return vscode.commands.executeCommand('workbench.action.terminal.sendSequence', {"text": "\u0003"});
-    }
-    else {
-        console.log("No active terminal found");
-        return false;
     }
 }
 

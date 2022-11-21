@@ -2,7 +2,7 @@
   "name": "code-cmd-repeat",
   "displayName": "Repeat terminal commands",
   "description": "Repeat terminal commands with easy shortcuts from the focused text editor.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publisher": "scheiblingco",
   "icon": "images/icon128.png",
   "engines": {
@@ -33,6 +33,11 @@
       "configuration": {
         "title": "Repeat Terminal",
         "properties": {
+          "code-cmd-repeat.alwaysClearBeforeRun": {
+            "type": "boolean",
+            "default": false,
+            "description": "Always clear terminal with Ctrl+C/Cmd+C before running command (text in command row, running commands, etc.)"
+          },
           "code-cmd-repeat.repetitionCommand": {
             "type": "string",
             "default": "!!",
