@@ -14,7 +14,9 @@ jobs:
         with:
           node-version: 18.0.0
       - name: "Run CI"
-        run: npm ci
+        run: |
+          npm ci
+          npm run build
       - name: "Add to latest release"
         uses: softprops/action-gh-release@v1
         with:
