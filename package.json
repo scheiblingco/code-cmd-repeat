@@ -2,7 +2,7 @@
   "name": "code-cmd-repeat",
   "displayName": "Repeat terminal commands",
   "description": "Repeat terminal commands with easy shortcuts from the focused text editor.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "publisher": "scheiblingco",
   "icon": "images/icon128.png",
   "engines": {
@@ -30,6 +30,35 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
+      "configuration": {
+        "title": "Repeat Terminal",
+        "properties": {
+          "code-cmd-repeat.repetitionCommand": {
+            "type": "string",
+            "default": "!!",
+            "description": "Command to use for repetition of last command. You can use [enter] to add additional commands.",
+            "scope": "workspace"
+          },
+          "code-cmd-repeat.repetitionCommandNth": {
+            "type": "string",
+            "default": "!-[num]",
+            "description": "Command to use for repetition of last Nth command (use [num] to insert number). You can use [enter] to add additional commands.",
+            "scope": "workspace"
+          },
+          "code-cmd-repeat.clearTerminalCommand": {
+            "type": "string",
+            "default": "clear -x",
+            "description": "Command to use for clearing the terminal.",
+            "scope": "workspace"
+          },
+          "code-cmd-repeat.sudoCommand": {
+            "type": "string",
+            "default": "sudo",
+            "description": "Which command to use for privilege elevation.",
+            "scope": "workspace"
+          }
+        }
+    },
     "commands": [
       {
         "command": "code-cmd-repeat.saveAndRepeatLastCommand",

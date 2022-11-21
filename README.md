@@ -19,6 +19,17 @@ You can change the shortcuts in the settings under the following commands:
 - extension.stopCurrentCommand
 - extension.restartCurrentCommand
 
+## Customization
+Under settings, you can customize the commands (or series of commands) needed for the repetition.
+
+| Command | Description | Default | Example |
+| --- | --- | --- | --- |
+| repetitionCommand | The command used for re-running the last command in terminal. Available placeholders: [enter] | !! | For zsh with histverify enabled (inserts one additional return at the end of the command): !! [enter] |
+| repetitionCommandNth | The command used for re-running the Nth last command in terminal. Available placeholders: [enter] | !-2 | For zsh with histverify enabled (inserts one additional return at the end of the command): !-2 [enter] |
+| clearTerminal | The command used to clear the terminal | clear -x | clear |
+| sudoCommand | The command prefix to use for running the last commands with higher privileges | sudo | sudo -u someuser |
+
+
 ## Thanks
 Thanks to the original author of the plugin [cameronmaske](https://github.com/cameronmaske/rerun-last-command-vscode)
 
